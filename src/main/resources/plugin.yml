@@ -12,3 +12,9 @@ permissions:
   guestguard.chat:
     default: op
     description: Allow players to chat
+  guestguard.drop:
+    default: op
+    description: Allow players to drop items
+  guestguard.pickup:
+    default: op
+    description: Allow players to pickup items

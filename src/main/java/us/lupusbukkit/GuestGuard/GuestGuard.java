@@ -8,6 +8,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.plugin.java.JavaPlugin;
  
 public class GuestGuard extends JavaPlugin implements Listener {
@@ -76,5 +77,16 @@ public class GuestGuard extends JavaPlugin implements Listener {
           player.sendMessage(ChatColor.RED+"You cannot drop items!"); 
         }
         }
+    }
+    
+    @EventHandler
+    public void StopPickup(PlayerPickupItemEvent event){
+        Player player = event.getPlayer();
+       if(stopPickup){
+        if(!player.hasPermission("guestguard.pickup")) {
+          event.setCancelled(true);
+          player.sendMessage(ChatColor.RED+"You cannot pickup items!"); 
+        }
+        } 
     }
     }
