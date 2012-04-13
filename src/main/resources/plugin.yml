@@ -9,9 +9,6 @@ permissions:
   guestguard.build:
     default: op
     description: Allow players to build
-  guestguard.command:
-    default: op
-    description: Allow players to perform /gg on and /gg off
   guestguard.chat:
     default: op
     description: Allow players to chat
