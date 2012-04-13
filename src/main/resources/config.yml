@@ -5,3 +5,7 @@ stopChat: true
 stopPlace: true
 
 stopBreak: true
+
+stopPickup: true
+
+stopDrop: true
