@@ -9,3 +9,5 @@ stopBreak: true
 stopPickup: true
 
 stopDrop: true
+
+stopDropCreative: false
