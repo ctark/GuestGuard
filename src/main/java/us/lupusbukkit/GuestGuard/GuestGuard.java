@@ -30,7 +30,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
     }
     @EventHandler
     public void StopPlace(BlockPlaceEvent event){
-        boolean stopPlace = plugin.getConfig().getBoolean("stopPlace");
+        boolean stopPlace = getConfig().getBoolean("stopPlace");
         Player player = event.getPlayer();
         if(stopPlace) {
         if(!player.hasPermission("guestguard.build")) {
@@ -41,7 +41,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
         }
     @EventHandler
     public void StopChat(PlayerChatEvent event){
-        boolean stopChat = plugin.getConfig().getBoolean("stopChat");
+        boolean stopChat = getConfig().getBoolean("stopChat");
         Player player = event.getPlayer();
         if(stopChat) {
         if(!player.hasPermission("guestguard.chat")) {
@@ -52,7 +52,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
     }
     @EventHandler
     public void StopBreak(BlockBreakEvent event){
-        boolean stopBreak = plugin.getConfig().getBoolean("stopBreak");
+        boolean stopBreak = getConfig().getBoolean("stopBreak");
         Player player = event.getPlayer();
         if(stopBreak){
         if(!player.hasPermission("guestguard.build")) {
@@ -64,7 +64,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
     
     @EventHandler
     public void StopDrop(PlayerDropItemEvent event){
-        boolean stopDrop = plugin.getConfig().getBoolean("stopDrop");
+        boolean stopDrop = getConfig().getBoolean("stopDrop");
         boolean stopDropCreative = plugin.getConfig().getBoolean("stopDropCreative");
         Player player = event.getPlayer();
         if(stopDropCreative){
@@ -83,7 +83,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
     
     @EventHandler
     public void StopPickup(PlayerPickupItemEvent event){
-        boolean stopPickup = plugin.getConfig().getBoolean("stopPickup");
+        boolean stopPickup = getConfig().getBoolean("stopPickup");
         Player player = event.getPlayer();
        if(stopPickup){
         if(!player.hasPermission("guestguard.pickup")) {
