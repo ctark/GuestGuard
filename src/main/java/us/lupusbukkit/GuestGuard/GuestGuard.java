@@ -1,6 +1,7 @@
 package us.lupusbukkit.GuestGuard;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,12 +13,8 @@ import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.plugin.java.JavaPlugin;
  
 public class GuestGuard extends JavaPlugin implements Listener {
-    boolean stopChat = this.getConfig().getBoolean("stopChat");
-    boolean stopPlace = this.getConfig().getBoolean("stopPlace");
-    boolean stopBreak = this.getConfig().getBoolean("stopBreak");
-    boolean stopPickup = this.getConfig().getBoolean("stopPickup");
-    boolean stopDrop = this.getConfig().getBoolean("stopDrop");
-    boolean stopDropCreative = this.getConfig().getBoolean("stopDropCreative");
+    public FileConfiguration options;
+    public static GuestGuard plugin;
     
     
     @Override
@@ -33,6 +30,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
     }
     @EventHandler
     public void StopPlace(BlockPlaceEvent event){
+        boolean stopPlace = plugin.getConfig().getBoolean("stopPlace");
         Player player = event.getPlayer();
         if(stopPlace) {
         if(!player.hasPermission("guestguard.build")) {
@@ -43,6 +41,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
         }
     @EventHandler
     public void StopChat(PlayerChatEvent event){
+        boolean stopChat = plugin.getConfig().getBoolean("stopChat");
         Player player = event.getPlayer();
         if(stopChat) {
         if(!player.hasPermission("guestguard.chat")) {
@@ -53,6 +52,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
     }
     @EventHandler
     public void StopBreak(BlockBreakEvent event){
+        boolean stopBreak = plugin.getConfig().getBoolean("stopBreak");
         Player player = event.getPlayer();
         if(stopBreak){
         if(!player.hasPermission("guestguard.build")) {
@@ -64,6 +64,8 @@ public class GuestGuard extends JavaPlugin implements Listener {
     
     @EventHandler
     public void StopDrop(PlayerDropItemEvent event){
+        boolean stopDrop = plugin.getConfig().getBoolean("stopDrop");
+        boolean stopDropCreative = plugin.getConfig().getBoolean("stopDropCreative");
         Player player = event.getPlayer();
         if(stopDropCreative){
             if(player.getGameMode() == GameMode.CREATIVE){
@@ -81,6 +83,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
     
     @EventHandler
     public void StopPickup(PlayerPickupItemEvent event){
+        boolean stopPickup = plugin.getConfig().getBoolean("stopPickup");
         Player player = event.getPlayer();
        if(stopPickup){
         if(!player.hasPermission("guestguard.pickup")) {
