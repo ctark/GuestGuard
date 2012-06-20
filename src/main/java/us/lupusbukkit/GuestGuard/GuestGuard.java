@@ -65,7 +65,7 @@ public class GuestGuard extends JavaPlugin implements Listener {
     @EventHandler
     public void StopDrop(PlayerDropItemEvent event){
         boolean stopDrop = getConfig().getBoolean("stopDrop");
-        boolean stopDropCreative = plugin.getConfig().getBoolean("stopDropCreative");
+        boolean stopDropCreative = getConfig().getBoolean("stopDropCreative");
         Player player = event.getPlayer();
         if(stopDropCreative){
             if(player.getGameMode() == GameMode.CREATIVE){
